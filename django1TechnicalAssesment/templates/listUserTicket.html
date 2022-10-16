@@ -1,0 +1,53 @@
+{% extends 'userBase.html' %}
+
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <div class="content-header sty-one">
+      <h1 class="text-white"></h1>
+      <a href="{% url 'addDepartment'  %}"><button type="submit" class="btn btn-warning">Add Department</button></a>
+      <ol class="breadcrumb">
+        <li><a href="adminhome">Home</a></li>
+        <li class="sub-bread"><i class="fa fa-angle-right"></i> Tables</li>
+        <li><i class="fa fa-angle-right"></i> Basic Tables</li>
+        
+
+      </ol>
+    </div>
+    
+        <hr class="m-t-1 m-b-3">
+        
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">created_at</th>
+           
+
+                
+              </tr>
+            </thead>
+            <tbody>
+              {% for x in data %}
+              <tr>
+                <th scope="row">{{x.id}}</th>
+                <th scope="row">{{x.subject}}</th>
+                <th scope="row">{{x.description}}</th>
+                <th scope="row">{{x.created_at}}</th>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.content --> 
+  
+    {% endblock %}
