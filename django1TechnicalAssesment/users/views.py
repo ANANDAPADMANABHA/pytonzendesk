@@ -11,11 +11,10 @@ from authentication.serializers import UserSerializer
 # Create your views here.
 
 def listUserTickets(request):
-    if 'username' in request.session:
-        
         email = "ananthapadmanabhan012@gmail.com"
         user = email + '/token'
         users = UserAccount.objects.get(email = request.user)
+        print("aaaaaaaaaaaaa",users.userid )
 
         api_token = 'uzvdcvLh7Y2NPIYWkRgGndb0nJaWjhxRCCb7OkJn'
         url = 'https://shoplifter.zendesk.com/api/v2/users/'+ users.userid +'/tickets/requested'
@@ -26,7 +25,7 @@ def listUserTickets(request):
         
         data = response.json()
         
-        print(data)
+        print(data,"dataaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         
         return render(request , "listUserTicket.html",{"data":data['tickets']})
 
@@ -34,7 +33,7 @@ def listUserTickets(request):
 
 
 def userCreateTicket(request):
-    if 'username' in request.session:
+    # if 'username' in request.session:
        
         user = request.user
         user_object = UserAccount.objects.get(email = user)
@@ -76,3 +75,4 @@ def userCreateTicket(request):
             return render(request ,"successuser.html")
 
         return render(request , "user_new_ticket.html")
+

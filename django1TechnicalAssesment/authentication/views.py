@@ -50,7 +50,7 @@ def loginuser(request):
             
                 request.session['username']=username
                 login(request,user)
-                return redirect("listUserTickets")
+                return render(request,"userHome.html")
         else:
             messages.error(request,'invalid credentials')
             return redirect(loginuser)
